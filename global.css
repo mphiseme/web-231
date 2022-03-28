@@ -59,3 +59,16 @@ Description: CSS style which will be used throughout web-231 course.
 .form-field {
     padding: 20px;
 }
+/* these following codes for assignment 
+phiseme-exercise2.html>
+*/
+a .return-home {
+    color: #4F3674;
+    text-decoration:none;    
+}
+.return-home:hover {
+    color: #D6A800;
+}
+a .return-home:visited {
+    color: #3C275A;
+}
