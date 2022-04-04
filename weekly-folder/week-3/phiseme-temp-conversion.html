@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>
+            Fahrenheit to Celsius Converter  
+        </title>   
+        <link href="phiseme-temp-conversion.css" type="text/css" rel="stylesheet">               
+        <link href="../../global.css" type="text/css" rel="stylesheet">                       
+        <link href="../../site.css" type="text/css" rel="stylesheet">                 
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--
+            Title: phiseme-temp-conversion.html
+            Author: Manel Phiseme
+            Date: 4/3/2022
+            Description: This is the html for Assignment 3.2 - Temperature Conversion App 
+        --> 
+        <header>
+            <h1 class="app-header ">Welcome to the Temperature Conversion App!</h1>
+        </header>
+        <div id="container">            
+            <div class="card">
+                <div class="card-title">Fahrenheit to Celsius Converter</div>
+            <div class="form-field">
+                <label  for="txtFahrenheit">Fahrenheit value</label>
+                <input type="text" id="txtFahrenheit" name="txtFahrenheit"> 
+                <div class="form-field">
+                    <button type="submit" class="btn btn-primary" onclick="fahToCelsius()">Convert Temperature</button>
+                </div>                        
+            </div>
+        </div>    
+     <!--Below is javaScript code-->
+<script>
+    //this function covert Fahrenheit to Celsius
+    function fahToCelsius(){
+    //this code takes the input from Html input box with id txtFahrenheit
+    //and assign it to variable fahrenheit
+     const fahrenheit = document.getElementById('txtFahrenheit').value;
+     //this code use the input in variable fahrenheit
+     //plug in the the equation to get the Celsius
+     //and assign the value to the variable celsiusValue     
+     const celsiusValue = ((parseFloat(fahrenheit)-32)/1.8).toFixed(2);
+     //this code get the div with the ID  card-content
+     //And assign it value in variable celsiusValue  
+     document.getElementById('card-content').innerHTML = celsiusValue;            
+     }          
+</script>         
+    
+    <div class="card faCard" >
+        <div class="form-field">
+    <div class="card-title">Conversion Results</div> 
+    <div class="form1">                
+        <div id="card-content"></div>              
+    </div> 
+</div>
+
+</div> 
+<a href="../../index.html">Return</a>   
+    </div>
+    
+    </body>
+</html>

@@ -1,0 +1,27 @@
+/*
+Title: phiseme-temp-conversion
+Author: Manel Phiseme
+Date: 4/3/2022
+Description: This the part of the css codes for phiseme-temp-conversion.hmtl assignment (Assignment 3.2 - Temperature Conversion App)
+*/
+.app-header {
+    background-color: white;
+    text-align: center;
+    font-size: 28px;
+    color: black;   
+    border:none; 
+}
+.card-title {
+    text-align: center;
+    font-size: 2em;
+    color: #4F3674;
+    font-weight: 400;
+}
+.faCard {
+    margin-top: 20px;
+    
+
+}
+ .form1 {    
+    text-align: center;
+}
