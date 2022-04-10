@@ -1,0 +1,57 @@
+/*
+Title: phiseme-Assignment 4.2 - Number Guessing Game
+Author: Manel Phiseme
+Date: 4/10/2022
+Description: This part of the css codes for phiseme-Assignment 4.2 - Number Guessing Game.hmtl assignment 
+*/
+.app-header {
+    background-color: white;
+    text-align: center;
+    font-size: 28px;
+    color: black;   
+    border:none; 
+}
+.card-title {
+    text-align: center;
+    font-size: 2em;
+    color: #4F3674;
+    font-weight: 400;
+}
+.faCard {
+    margin-top: 20px;    
+
+}
+ .form1 {    
+    text-align: center;
+}
+#btnSubmit{
+    background-color: #4F3674;
+    color:white;   
+
+}
+.btn2 {
+    border: none;
+    text-align:center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin:4px 2px;
+    cursor:pointer;
+    padding: 15px 112px;
+    color:black;
+}
+#txtMyNumber {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display:inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+label  {
+    color: #4F3674;
+}
+#card-content {
+    text-align: center;
+    font-size: 28px;
+}

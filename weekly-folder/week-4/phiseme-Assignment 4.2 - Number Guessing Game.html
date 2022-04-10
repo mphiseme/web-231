@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>
+            Number Guessing Game  
+        </title>   
+        <link href="phiseme-Assignment 4.2 - Number Guessing Game.css" type="text/css" rel="stylesheet">               
+        <link href="../../global.css" type="text/css" rel="stylesheet">                       
+        <link href="../../site.css" type="text/css" rel="stylesheet">                 
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--
+            Title: phiseme-Assignment 4.2 - Number Guessing Game
+            Author: Manel Phiseme
+            Date: 4/10/2022
+            Description: This is the html for Assignment 4.2 - Number Guessing Game. This is a guessing
+            Game. 
+        --> 
+        <header>
+            <h1 class="app-header ">Welcome to the numbers game!</h1>
+        </header>
+        <div id="container">            
+            <div class="card">
+                <div class="card-title">Pick a number between 1 and 10</div>
+            <div class="form-field">
+                <label  for="txtMyNumber">Guess the number:</label>
+                <input type="text" id="txtMyNumber" name="txtFahrenheit"> 
+                <div class="form-field">
+                    <button type="submit" class="btn2" id="btnSubmit" onclick="fahToCelsius()">Submit</button>
+                </div>                        
+            </div>
+        </div>    
+     <!--Below is javaScript code-->
+<script>
+    //this function generate a random number 
+    //take the input from the user user and compare
+    //the two
+    function fahToCelsius(){ 
+     // this code generate the random number and store it in 
+     //variable rnd   
+     const rnd = Math.floor((Math.random() * 10) + 1);   
+     //this code gets the value from the input html element and 
+     //store it in variable myNumber
+     const myNumber = document.getElementById('txtMyNumber').value;
+     
+     //This if statement determine if the the user's input number is 
+     //greater than the random number store in variable rnd
+     if (myNumber > rnd){
+         //This stringMess variable store the string message 
+        const stringMess = `This number is less than ${myNumber}`;
+        //this code call out the Div with the Id card-content and add the value from 
+        //the variable stringMess
+        document.getElementById('card-content').innerHTML = stringMess; 
+    }
+     else if (myNumber < rnd) {
+         //This stringMss2 variable store the string message 
+        const stringMss2 = `This number is greater ${myNumber}`;
+        //this code call out the Div with the Id card-content and add the value from
+        //the variable stringMss2 to it
+        document.getElementById('card-content').innerHTML = stringMss2;
+    } 
+    else { 
+        //This stringMss2 variable store the string message       
+        const stringMss3 = `Congratulations! You picked the correct number!`;
+        //this code call out the Div with the Id card-content and add the value from
+        //the variable stringMss2 to it
+        document.getElementById('card-content').innerHTML = stringMss3;    
+    };          
+                
+     }          
+</script>         
+    
+    <div class="card faCard" >
+        <div class="form-field">
+    <div class="card-title">Results</div> 
+    <div class="form1">                
+        <div id="card-content"></div>              
+    </div> 
+</div>
+
+</div> 
+<a href="../../index.html">Return</a>   
+    </div>
+    
+    </body>
+</html>
