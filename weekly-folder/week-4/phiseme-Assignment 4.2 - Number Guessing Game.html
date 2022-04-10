@@ -25,9 +25,9 @@
                 <div class="card-title">Pick a number between 1 and 10</div>
             <div class="form-field">
                 <label  for="txtMyNumber">Guess the number:</label>
-                <input type="text" id="txtMyNumber" name="txtFahrenheit"> 
+                <input type="text" id="txtMyNumber" name="txtMyNumber"> 
                 <div class="form-field">
-                    <button type="submit" class="btn2" id="btnSubmit" onclick="fahToCelsius()">Submit</button>
+                    <button type="submit" class="btn2" id="btnSubmit" onclick="guessNumb()">Submit</button>
                 </div>                        
             </div>
         </div>    
@@ -36,7 +36,7 @@
     //this function generate a random number 
     //take the input from the user user and compare
     //the two
-    function fahToCelsius(){ 
+    function guessNumb(){ 
      // this code generate the random number and store it in 
      //variable rnd   
      const rnd = Math.floor((Math.random() * 10) + 1);   
