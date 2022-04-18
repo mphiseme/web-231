@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Sequence Game</title>
+        <link href="phiseme-sequence-game.css" type="text/css" rel="stylesheet">             
+        <link href="../../global.css" type="text/css" rel="stylesheet">                       
+        <link href="../../site.css" type="text/css" rel="stylesheet">                 
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+         <!--
+            Title: phiseme-Assignment 5.2 - Sequence Game.html
+            Author: Manel Phiseme
+            Date: 4/17/2022
+            Description: This is the html for Assignment 5.2 - Sequence Game. This is a guessing
+            Game. 
+        --> 
+        <header class="app-header">
+            <h1 id="h-title">Welcome to the sequence game!</h1>
+        </header>
+        <div id="container">            
+            <div class="card">
+                <div class="card-title">Sequence Selection Form</div>
+            <div class="form-field">
+                <label  for="sequence">Choose a number sequence</label>
+                <select id="sequence" class="drop-down-menu" name="sequence">
+                    <option value="select">--Select--</option>
+                    <option value="fibonacci">Fibonacci Sequence</option>
+                    <option value="even">Even Numbers</option>
+                    <option value="odd">Odd Numbers</option>
+                </select> 
+                <div class="form-field">
+                    <!--oneclick event is set up call the sequenceGam() -->
+                    <button type="submit" class="btn2" id="btnDisplaySequence" onclick="sequenceGam()">Display Sequence</button>
+                </div>                        
+            </div>
+        </div>    
+     <!--Below is javaScript code-->
+<script>
+    //this function generate fibonacci Sequence, Even and odd numbers
+    function sequenceGam(){        
+     //this code get input from users from the html inbox 
+     //and assign it ot variable choice   
+     const choice = document.getElementById('sequence').value;     
+     //if else if else statement to determine which of the select options that 
+     //the user made. They can choose from fibonacci, even or odd
+     if (choice == "fibonacci"){         
+        //these codes declare variables num1, num2, next and fibonacciSequenceText;
+        let num1 = 0;
+        let num2 = 1;
+        let next;        
+        let fibonacciSequenceText = "";
+        // while loop to generate the fibonacci sequence number 
+        while(num1 < 40){
+            fibonacciSequenceText += ( num1 + ",");            
+            next = num1 + num2;
+            num1 = num2;
+            num2 = next;                        
+        }     
+        //get DIV element with ID "card-content" and assign it the variable fibonacci values store
+        // in variable fibonacciSequenceText
+        document.getElementById('card-content').innerHTML = fibonacciSequenceText.slice(0,-1); 
+    }
+    //if user select even number then the following code will execute 
+    else if (choice == "even") {
+        //declare the variable i and evenNumb
+        //for the do while loop
+         let i = 2;
+         let evenNumb = "";
+         //do while loop to generate even numbers
+         do {
+            evenNumb += i + ",";
+            i+=2;
+         }  
+         while (i < 20);             
+        //get DIV element with ID "card-content" and assign it the value stores
+        // in variable evenNumb
+        document.getElementById('card-content').innerHTML = evenNumb;
+    } 
+    //if user select odd number then the following code will execute 
+    else if (choice == "odd") { 
+        //declare the variable i and evenNumb
+        //for loop to generate odd number
+        let numOdd =""; 
+        for (let i = 1; i < 20; i+=2){
+            numOdd += i + ",";
+        }
+        //get DIV element with ID "card-content" and assign it the value store in variable numOdd 
+         document.getElementById('card-content').innerHTML = numOdd;    
+    }
+    //if user select odd number then the following code will execute 
+    //to inform the user that they made the wrong selection
+    else {
+        alert("Invalid selection, please try again!");
+    };          
+                
+     }          
+</script>  
+ <!--This create the card where result of the javaScript codes will display -->   
+        <div class="card faCard" >
+        <div class="form-field">    
+    <div class="card-title">Sequence Results</div> 
+    <div class="form1"> 
+        <!--This empty div ID is created to store the results from the
+        JavaScript codes -->               
+        <div id="card-content"></div>              
+    </div> 
+</div>
+
+</div> 
+<a href="../../index.html">Return</a>   
+    </div>
+    </body>
+</html>
