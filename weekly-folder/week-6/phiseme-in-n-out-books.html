@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>In-N-Out-Books</title>
+        <link href="phiseme-in-n-out-books.css" type="text/css" rel="stylesheet">
+        <link href="../../global.css" type="text/css" rel="stylesheet">                       
+        <link href="../../site.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--
+           Title: phiseme-in-n-out-books.html.html
+           Author: Manel Phiseme
+           Date: 4/24/2022
+           Description: This is the html for Assignment 6.2 - In-N-Out-Books. 
+       --> 
+       <header class="app-header">
+           <h1 id="h-title">Welcome to In-N-Out-Books</h1>
+       </header>
+       <div id="container">            
+           <div class="card">
+               <div class="card-title">My Favorites</div>
+           <div class="form-field">
+               <label  for="favoriteList">Choose a listing</label>
+               <select id="favoriteList" class="drop-down-menu" name="sequence">
+                   <option value="select">--Select--</option>
+                   <option value="books">Top 3 Favorite Books</option>
+                   <option value="authors">Top 3 Favorite Authors</option>                   
+               </select> 
+               <div class="form-field">
+                   <!--oneclick event is set up call the bookAuthor() -->
+                   <button type="submit" class="btn2" id="btnDisplayListing" onclick="bookAuthor()">Display Listing</button>
+               </div>                        
+           </div>
+        </div> 
+          <div>
+        <a href="../../index.html">Return</a>   
+           </div>
+          
+    <!--Below is javaScript code-->
+<script>
+   //this function pull up two table based, a book table and an Author table 
+   function bookAuthor(){ 
+     const bookRing = {isbn:0261103571, title:"The Fellowship of the Ring", pages:432};
+     const bookTower = {isbn:1514297272, title:"The Two Towers", pages:322};
+     const bookKing = {isbn:1514298139, title:"The Return of the King", pages:432};
+     const authTolkien = {name:"John Ronald Reuel Tolkien", genre:"Fantasy" };
+     const authFranklin = {name:"Franklin Patrick Herbert Jr.", genre:"	Science Fiction" };     
+     const authLewis = {name:"Clive Staples Lewis", genre:"Fantasy, science fiction, children's literature" };
+     
+     const books = document.getElementById("favorite-books");
+     const authors = document.getElementById("favorite-authors");
+     authors.style.display = "none";   
+     books.style.display = "block";
+
+     //these codes get the empty table row of the the html table
+     //for the book (The Fellowship of the Ring) and assign it to
+     //the data stored in the object literal in variable bookRing     
+     document.getElementById("isbRing").innerHTML= bookRing.isbn;
+     document.getElementById("titRing").innerHTML= bookRing.title;
+     document.getElementById("pagRing").innerHTML= bookRing.pages;
+ 
+    //these codes get the empty table row of the the html table
+     //for the book (The Two Towers) and assign it to
+     //the data stored in the object literal variable bookTower
+     document.getElementById("isTow").innerHTML= bookTower.isbn;
+     document.getElementById("titTow").innerHTML= bookTower.title;
+     document.getElementById("pagTow").innerHTML= bookTower.pages;
+
+     //these codes get the empty table row of the the html table
+     //for the book (The Return of the King) and assign it to
+     //the data stored in the object literal variable bookKing
+     document.getElementById("isKing").innerHTML= bookKing.isbn;
+     document.getElementById("titKing").innerHTML= bookKing.title;
+     document.getElementById("pagKing").innerHTML= bookKing.pages;
+
+     //these codes get the empty table row of the the html table
+     //for author (John Ronald Reuel Tolkien) and assign it
+     //the data in the object literal in variable authTolkien
+     document.getElementById("autTokien").innerHTML= authTolkien.name;
+     document.getElementById("tokGen").innerHTML= authTolkien.genre;     
+
+     //these codes get the empty table row of the the html table
+     //for author (Franklin Patrick Herbert Jr.) and assign it
+     //the data in the object literal in variable authFranklin
+     document.getElementById("autFrank").innerHTML= authFranklin.name;
+     document.getElementById("frankGen").innerHTML= authFranklin.genre;     
+
+     //these codes get the empty table row of the the html table
+     //for author (Clive Staples Lewis) and assign it
+     //the data in the object literal in variable authLewis
+     document.getElementById("autLew").innerHTML= authLewis.name;
+     document.getElementById("lewGen").innerHTML= authLewis.genre;
+     
+    // This code take the user's  selection and assigned it to 
+    //the variable choice
+    const choice = document.getElementById('favoriteList').value;   
+    //if else if statement check to see if user selected  
+    //The choice Top 3 Favorite Books
+    if (choice == "books"){ 
+        //If user selected The choice Top 3 Favorite Books  
+        //then the Book table will show   
+        authors.style.display = "none";   
+       books.style.display = "block";         
+      
+   }
+   //if else if statement check to see if user selected  
+    //The choice Top 3 Favorite Author  
+   else if (choice == "authors") {  
+       //If user selected The choice Top 3 Favorite Author  
+    //then the Author table will show         
+       books.style.display ="none";
+       authors.style.display ="block";                  
+      
+   } 
+   //if user select "Select" the nothing shows
+   else {
+       authors.style.display = "none";   
+       books.style.display = "none";  
+   };          
+               
+    }          
+</script>  
+<!--This create the card where result of the javaScript codes will display -->   
+       <div class="card faCard" >
+       <div class="form-field">  
+       <div class="form1"> 
+  
+       <!--Below is the div ID created to store the table field for book -->               
+       <div id="favorite-books">        
+        <div class="card-title">Top 3 Favorite Books</div> 
+           <table id="tabBrder">
+              
+                <tr>
+                    <th id="bookIsb">ISBN</th>
+                    <th id="bookTit">Title</th>
+                    <th id="bookPg">Pages</th>
+                </tr>               
+                <tr>
+                    <td id="isbRing"></td> 
+                    <td id="titRing"></td>
+                    <td id="pagRing"></td>                  
+                </tr>
+                <tr>
+                    <td id="isTow"></td>
+                    <td id="titTow"></td>
+                    <td id="pagTow"></td>
+                </tr>
+                <tr>
+                    <td id="isKing"></td>
+                    <td id="titKing"></td>
+                    <td id="pagKing"></td>
+                </tr>          
+                             
+           </table>
+           
+       </div>  
+       <!--Below is the div ID created to store the table field for Author -->
+       <div id="favorite-authors">         
+        <div class="card-title">Top 3 Favorite Author</div> 
+        <table> 
+            <tbody>         
+                <tr>
+                    <th>Name</th>
+                    <th>Genre</th>
+                    
+                </tr>            
+                <tr>
+                    <td id="autTokien"></td> 
+                    <td id="tokGen"></td>                                 
+                </tr>
+                <tr>
+                    <td id="autFrank"></td>
+                    <td id="frankGen"></td>                
+                </tr>
+                <tr>
+                    <td id="autLew"></td>
+                    <td id="lewGen"></td>                
+                </tr>
+            </tbody>                       
+        </table>  
+</div>
+</div>
+</div>
+</div>
+</div> 
+   </body>
+</html>
