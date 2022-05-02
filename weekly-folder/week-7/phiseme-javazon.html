@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Welcome to the Javazon App!</title>
+        <link href="phiseme-javazon.css" type="text/css" rel="stylesheet">
+        <link href="../../global.css" type="text/css" rel="stylesheet">                       
+        <link href="../../site.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--
+           Title: phiseme-javazon.html
+           Author: Manel Phiseme
+           Date: 5/1/2022
+           Description: This is the html for phiseme-javazon.html. 
+       --> 
+       <header class="app-header">
+           <h1 id="h-title">Welcome to the Javazon App!</h1>
+       </header>
+       <div id="container">            
+           <div class="card">
+               <div class="card-title">Javazon Selection Form</div>
+           <div class="form-field">
+               <label  for="javazonList">Choose a listing</label>
+               <select id="javazonList" class="drop-down-menu" name="sequence">
+                   <option value="select">--Select--</option>
+                   <option value="products">Products</option>
+                   <option value="services">Services</option>  
+                   <option value="employees">Employees</option>                  
+               </select> 
+               <div class="form-field">
+                   <!--oneclick event is set up call the bookAuthor() -->
+                   <button type="submit" class="btn2" id="btnDisplayListing" onclick="selctJavazon()">Display Listing</button>
+               </div>                        
+           </div>
+        </div> 
+          <div>
+        <a href="../../index.html">Return</a>   
+           </div>
+          
+    <!--Below is javaScript code-->
+<script>
+   //this function pull up two table based, a book table and an Author table 
+   function selctJavazon(){ 
+
+    class prodClass {
+        constructor(id, description, price, quantity){
+            this.id = id;
+            this.description = description;
+            this.price = price;
+            this.quantity = quantity;
+            totalValue = this.quantity * this.price;
+            totalValue.toFixed(2);
+
+        }
+    }
+    class serviceClass {
+        constructor (id, description, hourlyRate, min){
+            this.id =id;
+            this.description = description;
+            this.hourlyRate = hourlyRate;
+            this.min = min;
+            this.hourlyRate.toFixed(2);
+        }
+    }
+    class employClass {
+        constructor (id, firstName, lastName, salary) {
+            this.salary.toFixed(2);
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.id = id;
+
+        }
+
+    }
+    // the below codes create object five object literals and assign them to variable
+    // prodObject1, prodObject2, prodObject3, prodObject4, prodObject5
+    const prodObject1 = {id:9781118008188, description: "HTML and CSS:Design and Build Websites", price:22.26, quantity: 10, value: 222.60};
+    const prodObject2 = {id:9781491952023, description: "JavaScript: The Definitive Guide 7/", price:41.33, quantity: 7, value: 289.31};
+    const prodObject3 = {id:9781449331818, description: "Learning JavaScript Design Patterns 1/E", price:25.99, quantity: 3, value: 77.97};
+    const prodObject4 = {id:9781617292422, description: "Express in Action: Writing, building, and testing Node.js applications 1/E", price:34.91, quantity: 3, value:104.73};
+    const prodObject5 = {id:9781491954461, description: "MongoDB The Definitive Guide", price:33.70, quantity: 8, value:269.60};
+
+    // the below codes create object three object literals and assign them to variable
+    // serviceObject1, serviceObject2, serviceObject3
+    const serviceObject1 = {id:100, description:"Website Design", hRate:150.00, min: 25};
+    const serviceObject2 = {id:101, description:"Website Design", hRate:125.00, min: 50};
+    const serviceObject3 = {id:102, description:"Website Design", hRate:125.00, min: 15};
+
+     // the below codes create object five object literals and assign them to variable
+    // employBeeObject, employBachObject, employMozObject,employBrahObject,employHayObject
+    const employBeeObject = {id:1007, lastName:"Beethoven", firstName:"Ludwig", salary:13.99};
+    const employBachObject = {id:1007, lastName:"Bach", firstName:"Johann", salary:22.30};
+    const employMozObject = {id:1007, lastName:"Mozart", firstName:"Wolfgang", salary:19.50};
+    const employBrahObject = {id:1007, lastName:"Brahms", firstName:"Johannes", salary:12.00};
+    const employHayObject = {id:1007, lastName:"Haydn", firstName:"Joseph", salary:32.50};
+     
+    //These codes take the html element with the ID JavaznProduct and assign it to the 
+    //variable products
+     const products = document.getElementById("JavaznProduct");
+     //These codes take the html element with the ID JavaznService and assign it to the 
+    //variable services
+     const services = document.getElementById("JavaznService");
+     //These codes take the html element with the ID JavaznEmployees and assign it to the 
+    //variable employees
+     const employees = document.getElementById("JavaznEmployees");
+     //this dis code hide product table
+     products.style.display = "none"; 
+    //this dis code hide services table
+     services.style.display = "none";
+    //this dis code hide employees table
+     employees.style.display = "none";  
+     
+
+     //these codes get the empty table row of the the html product table
+     //and assign the data to stored in the object 
+     //literal in variable prodObject1      
+     document.getElementById("htmlId").innerHTML= prodObject1.id;
+     document.getElementById("htmlDescrpt").innerHTML= prodObject1.description;
+     document.getElementById("htmlPrice").innerHTML= prodObject1.price;
+     document.getElementById("htmlQuatity").innerHTML= prodObject1.quantity;
+     document.getElementById("htmlTvalue").innerHTML= prodObject1.value;
+
+     //these codes get the empty table row of the the html product table
+     //and assign the data to stored in the object 
+     //literal in variable prodObject2
+     document.getElementById("javaId").innerHTML= prodObject2.id;
+     document.getElementById("javaDescrpt").innerHTML= prodObject2.description;
+     document.getElementById("javaPrice").innerHTML= prodObject2.price;
+     document.getElementById("javaQuatity").innerHTML= prodObject2.quantity;
+     document.getElementById("javaTvalue").innerHTML= prodObject2.value;
+
+     //these codes get the empty table row of the the html product table
+     //and assign the data to stored in the object 
+     //literal in variable prodObject3
+     document.getElementById("learnId").innerHTML= prodObject3.id;
+     document.getElementById("learnDescrpt").innerHTML= prodObject3.description;
+     document.getElementById("learnPrice").innerHTML= prodObject3.price;
+     document.getElementById("learnQuatity").innerHTML= prodObject3.quantity;
+     document.getElementById("learnTvalue").innerHTML= prodObject3.value;
+
+    //these codes get the empty table row of the the html product table
+    //and assign the data to stored in the object 
+    //literal in variable prodObject4
+     document.getElementById("expressId").innerHTML= prodObject4.id;
+     document.getElementById("expressDescrpt").innerHTML= prodObject4.description;
+     document.getElementById("expressPrice").innerHTML= prodObject4.price;
+     document.getElementById("expressQuatity").innerHTML= prodObject4.quantity;
+     document.getElementById("expressTvalue").innerHTML= prodObject4.value;
+
+     //these codes get the empty table row of the the html product table
+    //and assign the data to stored in the object 
+    //literal in variable prodObject5
+     document.getElementById("mongoId").innerHTML= prodObject5.id;
+     document.getElementById("mongoDescrpt").innerHTML= prodObject5.description;
+     document.getElementById("mongoPrice").innerHTML= prodObject5.price;
+     document.getElementById("mongoQuatity").innerHTML= prodObject5.quantity;
+     document.getElementById("mongoTvalue").innerHTML= prodObject5.value;
+     
+     
+    //these codes get the empty table row of the the html service table
+    //and assign the data to stored in the object 
+    //literal in variable serviceObject1
+     document.getElementById("servicWebId").innerHTML= serviceObject1.id;
+     document.getElementById("servicWDescript").innerHTML= serviceObject1.description ;
+     document.getElementById("servicWHRate").innerHTML= serviceObject1.hRate;
+     document.getElementById("servicWMBHours").innerHTML= serviceObject1.min;
+
+     //these codes get the empty table row of the the html service table
+    //and assign the data to stored in the object 
+    //literal in variable serviceObject2
+     document.getElementById("servicDevId").innerHTML= serviceObject2.id;;
+     document.getElementById("servicDevDescript").innerHTML= serviceObject2.description;
+     document.getElementById("servicDevHRate").innerHTML= serviceObject2.hRate;
+     document.getElementById("servicDevMBHours").innerHTML= serviceObject2.min;
+
+      //these codes get the empty table row of the the html service table
+    //and assign the data to stored in the object 
+    //literal in variable serviceObject3
+     document.getElementById("dataId").innerHTML= serviceObject3.id;
+     document.getElementById("dataDescript").innerHTML= serviceObject3.description;
+     document.getElementById("dataHRate").innerHTML= serviceObject3.hRate;
+     document.getElementById("dataMBHours").innerHTML= serviceObject3.min;
+
+     //these codes get the empty table row of the the html employee table
+    //and assign the data to stored in the object 
+    //literal in variable employBeeObject
+     document.getElementById("employBeethId").innerHTML= employBeeObject.id;
+     document.getElementById("employBeethLst").innerHTML= employBeeObject.lastName;
+     document.getElementById("employBeethFrst").innerHTML= employBeeObject.firstName;
+     document.getElementById("employBeethSlry").innerHTML= employBeeObject.salary ;
+
+     //these codes get the empty table row of the the html employee table
+    //and assign the data to stored in the object 
+    //literal in variable employBachObject
+     document.getElementById("employBachId").innerHTML= employBachObject.id;
+     document.getElementById("employBachLst").innerHTML= employBachObject.lastName;
+     document.getElementById("employBachFrst").innerHTML= employBachObject.firstName;
+     document.getElementById("employBachSlry").innerHTML= employBachObject.salary ;
+
+     //these codes get the empty table row of the the html employee table
+    //and assign the data to stored in the object 
+    //literal in variable employMozObject
+     document.getElementById("employMozartId").innerHTML= employMozObject.id;
+     document.getElementById("employMozartLst").innerHTML= employMozObject.lastName;
+     document.getElementById("employMozartFrst").innerHTML= employMozObject.firstName;
+     document.getElementById("employMozartSlry").innerHTML= employMozObject.salary;
+
+     //these codes get the empty table row of the the html employee table
+    //and assign the data to stored in the object 
+    //literal in variable employBrahObject
+     document.getElementById("employBrahmsId").innerHTML= employBrahObject.id;
+     document.getElementById("employBrahmsLst").innerHTML= employBrahObject.lastName;
+     document.getElementById("employBrahmsFrst").innerHTML= employBrahObject.firstName;
+     document.getElementById("employBrahmsSlry").innerHTML= employBrahObject.salary;
+
+     //these codes get the empty table row of the the html employee table
+    //and assign the data to stored in the object 
+    //literal in variable employBrahObject
+     document.getElementById("employHaydnId").innerHTML= employHayObject.id;
+     document.getElementById("employHaydnLst").innerHTML= employHayObject.lastName;
+     document.getElementById("employHaydnFrst").innerHTML= employHayObject.firstName;
+     document.getElementById("employHaydnSlry").innerHTML= employHayObject.salary;    
+     
+
+
+    // This code take the user's  selection and assigned it to 
+    //the variable choice
+    const choice = document.getElementById('javazonList').value;   
+    //switch case statement check to see what selection user made    
+    switch (choice){ 
+        case "":
+        authors.style.display = "none";   
+       books.style.display = "block";
+       //switch case statement check to see if user selected  
+       //products, if so the products table will display
+       case "products":
+            products.style.display = "block"; 
+            services.style.display = "none";
+            employees.style.display = "none";
+           break;
+       //switch case statement check to see if user selected  
+       //services, if so the services table will display
+       case "services":
+            products.style.display = "none"; 
+            services.style.display = "block";
+            employees.style.display = "none";
+           break;
+        //switch case statement check to see if user selected  
+       //employees, if so the employee table will display
+       case "employees":
+            products.style.display = "none"; 
+            services.style.display = "none";
+            employees.style.display = "block";
+           break;
+       //switch case statement check to see if user selected  
+       //select, if so then no table will display
+       case "select":
+           break;
+           default:
+            products.style.display = "none"; 
+            services.style.display = "none";
+            employees.style.display = "none";     
+    }  
+         
+    }          
+</script>  
+<!--This create the card where result of the javaScript codes will display -->   
+       <div class="card faCard" >
+       <div class="form-field">  
+       <div class="form1"> 
+  
+       <!--Below is the div ID created to store the table field for Products -->               
+       <div id="JavaznProduct">        
+        <div class="card-title">Javazon Products</div> 
+           <table id="tabBrder">
+              
+                <tr>
+                    <th id="prodId">Product Id</th>
+                    <th id="prodDescript">Description</th>
+                    <th id="prodPrce">Price</th>
+                    <th id="prodQuanty">Quantity</th>
+                    <th id="prodTValue">Total Value</th>
+                </tr>               
+                <tr>
+                    <td id="htmlId"></td> 
+                    <td id="htmlDescrpt"></td>
+                    <td id="htmlPrice"></td>  
+                    <td id="htmlQuatity"></td>
+                    <td id="htmlTvalue"></td>                   
+                </tr>
+                <tr>
+                    <td id="javaId"></td> 
+                    <td id="javaDescrpt"></td>
+                    <td id="javaPrice"></td>  
+                    <td id="javaQuatity"></td>
+                    <td id="javaTvalue"></td>
+                </tr>
+                <tr>
+                    <td id="learnId"></td> 
+                    <td id="learnDescrpt"></td>
+                    <td id="learnPrice"></td>  
+                    <td id="learnQuatity"></td>
+                    <td id="learnTvalue"></td>
+                </tr> 
+                <tr>
+                    <td id="expressId"></td> 
+                    <td id="expressDescrpt"></td>
+                    <td id="expressPrice"></td>  
+                    <td id="expressQuatity"></td>
+                    <td id="expressTvalue"></td>
+                </tr> 
+                <tr>
+                    <td id="mongoId"></td> 
+                    <td id="mongoDescrpt"></td>
+                    <td id="mongoPrice"></td>  
+                    <td id="mongoQuatity"></td>
+                    <td id="mongoTvalue"></td>
+                </tr>          
+                             
+           </table>
+           
+       </div>  
+       <!--Below is the div ID created to store the table field for services -->
+       <div id="JavaznService">         
+        <div class="card-title">Javazon Services</div> 
+        <table> 
+            <tbody>         
+                <tr>
+                    <th>Service ID</th>
+                    <th>Description</th>
+                    <th>Hourly Rate</th>
+                    <th>Minimum Billable hours</th>                    
+                </tr>            
+                <tr>
+                    <td id="servicWebId"></td> 
+                    <td id="servicWDescript"></td> 
+                    <td id="servicWHRate"></td> 
+                    <td id="servicWMBHours"></td>                                
+                </tr>
+                <tr>
+                    <td id="servicDevId"></td> 
+                    <td id="servicDevDescript"></td> 
+                    <td id="servicDevHRate"></td> 
+                    <td id="servicDevMBHours"></td>               
+                </tr>
+                <tr>
+                    <td id="dataId"></td> 
+                    <td id="dataDescript"></td> 
+                    <td id="dataHRate"></td> 
+                    <td id="dataMBHours"></td>               
+                </tr>
+            </tbody>                       
+        </table>  
+</div>
+<!--Below is the div ID created to store the table field for Employees -->
+<div id="JavaznEmployees">         
+    <div class="card-title">Javazon Employees</div> 
+    <table> 
+        <tbody>         
+            <tr>
+                <th>Employee ID</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Salary</th>                
+            </tr>            
+            <tr> 
+                <td id="employBeethId"></td> 
+                <td id="employBeethLst"></td>
+                <td id="employBeethFrst"></td> 
+                <td id="employBeethSlry"></td>                                 
+            </tr>
+            <tr>
+                <td id="employBachId"></td> 
+                <td id="employBachLst"></td>
+                <td id="employBachFrst"></td> 
+                <td id="employBachSlry"></td>                
+            </tr>
+            <tr>
+                <td id="employMozartId"></td> 
+                <td id="employMozartLst"></td>
+                <td id="employMozartFrst"></td> 
+                <td id="employMozartSlry"></td>                
+            </tr>
+            <tr>
+                <td id="employBrahmsId"></td> 
+                <td id="employBrahmsLst"></td>
+                <td id="employBrahmsFrst"></td> 
+                <td id="employBrahmsSlry"></td>                
+            </tr>
+            <tr>
+                <td id="employHaydnId"></td> 
+                <td id="employHaydnLst"></td>
+                <td id="employHaydnFrst"></td> 
+                <td id="employHaydnSlry"></td>                
+            </tr>            
+        </tbody>                       
+    </table>  
+</div>
+
+</div>
+</div>
+</div>
+</div> 
+   </body>
+</html>
