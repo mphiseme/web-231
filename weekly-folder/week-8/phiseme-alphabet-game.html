@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Welcome to the Alphabet Game!</title>
+        <link href="phiseme-alphabet-game.css" type="text/css" rel="stylesheet">
+        <link href="../../global.css" type="text/css" rel="stylesheet">                       
+        <link href="../../site.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--
+           Title: phiseme-alphabet-game.html
+           Author: Manel Phiseme
+           Date: 5/8/2022
+           Description: This is the html for phiseme-alphabet-game.html. 
+       --> 
+       <header class="app-header">
+           <h1 id="app-header">Welcome to the Alphabet Game!</h1>
+       </header>
+       <div id="container">            
+           <div class="card">
+               <div class="card-title">Alphabet Number Form</div>
+           <div class="form-field">
+               <label  for="txtPosition">Alphabet Letter Position</label>
+               <input id="txtPosition" class="input" name="sequence">
+               <div class="form-field">
+                   <!--oneclick event is set up call the alphabetGame() function -->
+                   <button type="submit" class="btn2" id="btnFindLetter" onclick="alphabetGame()">Find Letter</button>
+               </div>                        
+           </div>
+        </div> 
+          <div>
+        <a href="../../index.html">Return</a>   
+           </div>
+          
+    <!--Below is javaScript code-->
+<script>
+   //this is the alphabet Game function. It take the user's input and verify and
+   // reveal the results of their input.
+   function alphabetGame(){ 
+       
+    // this create an array of letters which is stored in 
+    //the variable alphabet
+    const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N",
+     "O", "P", "Q", "R", "S", "T", "U", "V","W","X", "Y", "Z"];
+   
+     //This created an empty variable name alphabetOutput
+     let alphabetOutput = "";
+
+     //This create a for/n loop to go through the array "alphabet"
+     // the variable arrayN is used to go through the array alphabet
+    for (let arrayN in alphabet){
+        alphabetOutput +=  alphabet[arrayN] + ", ";
+    }
+    
+    // This get the Div with the ID alphabet-letter and add
+    // the value accumulated from for/in loop to it    
+    // slice is use to remove the last comma that is shown the final result of code    
+     document.getElementById('alphabet-letter').innerHTML = alphabetOutput.slice(0, -2);  
+
+    // This code take the user's  input and assign to variable pos
+    const pos = document.getElementById('txtPosition').value;
+    
+   // this code take the position number the user input
+   //and find the value found at the indext number 
+   // from the array
+    const letter = alphabet[pos];   
+    
+    //if ..else  which verify the user's input
+    //check to see if it's undefined     
+    if (letter == undefined){
+        //if the user's input is undefined or is not located in the array        
+        // Then this message is display
+        document.getElementById("alphabet-result").innerHTML = `"There are not ${pos} \n 
+    letters in the alphabets`;
+
+}else {
+    // if the position number that the user entered is found in the array then this message is displayed.
+    document.getElementById("alphabet-result").innerHTML = ` "${letter} is at position ${pos} \n
+     in the alphabets`;
+}     
+}          
+</script>  
+<!--This create the card where result of the javaScript codes will display -->   
+       <div class="card faCard" >
+       <div class="form-field formflds">  
+       <div class="form1"> 
+  
+       <!--Below is the div ID created to store the Alphabet letters from the array-->               
+       <div id="alphLett">        
+        <div class="card-title">Letters in the Alphabet</div>
+           <div id="alphabet-letter"></div>           
+       </div>
+    </div>     
+       
+</div>
+</div>
+<!--This create the card where result of the javaScript codes will display -->   
+<div class="card faCard">
+    <div class="form-field formflds">  
+    <div class="form1"> 
+    <!--Below is the div ID created for the Results of the user's input -->               
+    <div id="alphResult">        
+     <div class="card-title">Results</div>
+        <div id="alphabet-result"></div>           
+    </div>
+ </div>     
+    
+</div>
+</div>
+</div> 
+   </body>
+</html>

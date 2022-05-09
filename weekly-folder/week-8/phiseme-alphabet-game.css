@@ -1,0 +1,30 @@
+
+/*
+           Title: phiseme-alphabet-game.css
+           Author: Manel Phiseme
+           Date: 5/8/2022
+           Description: This is the css code for Assignment 8 - alphabet-game.css. 
+       */
+
+#app-header  {
+    text-align: center;
+    background-color: white;
+    color: black;
+    border: none;
+}
+
+#btnFindLetter {
+    padding: 15px 112px;
+    margin: 8px 0;
+    background-color: #4F3674;
+    color:white;
+}
+.formflds {
+    margin-top: 45px;
+}
+#alphabet-letter, #alphabet-result {
+    text-align: center;
+    font-size: 28px;
+}
+
+
