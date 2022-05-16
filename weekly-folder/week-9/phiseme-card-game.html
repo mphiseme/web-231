@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>Welcome to the Alphabet Game!</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="phiseme-card-game.css" type="text/css" rel="stylesheet">
+        <link href="../../global.css" type="text/css" rel="stylesheet">                       
+        <link href="../../site.css" type="text/css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <!--
+           Title: phiseme-card-game.html
+           Author: Manel Phiseme
+           Date: 5/12/2022
+           Description: This is the html for phiseme-card-game.html. 
+       --> 
+       <header class="app-header">
+           <h1 id="app-header">Welcome to the Card Game!</h1>
+       </header>
+       <div id="container">            
+           <div class="card">
+               <div class="card-title">Card Dealer</div>
+           <div class="form-field">               
+               <div class="form-field">
+                   <!--oneclick event is set up call the cardDealCards() function-->
+                   <button type="submit" class="btn2" id="btnDealCards" >Deal Cards</button>
+               </div>                        
+           </div>
+        </div> 
+          <div>
+        <a href="../../index.html">Return</a>   
+           </div>
+          
+    <!--Below is javaScript code-->
+<script>       
+      
+    //this is a class (object) titled Card
+    // it takes two parameters
+       class Card {
+           constructor(face,suit){
+               this.face = face;
+               this.suit = suit;
+           }
+       }
+     //this is a class (object) titled Dealer
+    // it calls the function getDeckOfCards()
+       class Dealer {
+           constructor(){
+            getDeckOfCards();
+
+           }
+       }
+
+       //This create a variable title CARD_COUNT and assign
+       //it value of 52
+       const CARD_COUNT = 52;
+       let cards = []; //this created an empty array titled cards
+       //this create an array title faces with some array values
+       const faces = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];
+       //this create an array titled suits with some values
+       const suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+
+       // this is a function titled getDeckOfCards
+       //It suppose to create a new card object through every iteration 
+       // and these card objects are suppose to be store in the cars array.  
+       const getDeckOfCards = function(){
+           for (let count = 0; count < this.CARD_COUNT; count ++){
+             this.cards[count] = new Card(this.faces[count % 13], this.suit[Math.floor(count / 13)]);
+           }
+
+       }    
+
+
+       // This function is suppose to shuffle the cards in the 
+       //cards array
+     //const shuffle = function(){
+        function shuffle (){
+       for (let count = 0; count < CARD_COUNT; count ++){
+           // for loop to iterate through the cards array
+           //and shuffle the objects in it.
+               let secondCard = Math.floor(Math.random()* this.CARD_COUNT);
+               let firstCard = this.cards[count];
+               let tempCard = this.cards[firstCard];
+              this.cards[count]= secondCard; //coming back
+               this.cards[count] = tempCard;
+
+          } 
+       }
+       // This buildPlayingCard function is suppose to return css strings.
+       //THis function receive four parameters       
+       const buildPlayingCard = function(card,suitIcon,faceColor,suitColor){
+           let inlineCssVarb = `<span class="${suitIcon}" style="color:${suitColor}></span>"`;
+           let inlineCssVarb2 = `<div class="card player-card"><div class="card-title" style="color:${faceColor}">${card.face}</div></div>`
+
+       }      
+
+       //this is the card Game function. 
+       //The user active this function when they click on the html button         
+       document.getElementById("btnDealCards").onclick  = function() {  
+        // this code create a new Dealer class and assign and name it dealer
+        let dealer = new Dealer(); 
+        // this code call the shuffle function            
+        dealer.shuffle;          
+        //this is a variable name cardOutputWithIcon with empty value   
+        let cardOutputWithIcon ="";
+        // this "for loop" will iterate  through the new dealer cards 
+        //array. 
+        for(const card of dealer.cards){
+            //This switch case is used to compare the suit against the string value  
+            switch(card.suit){
+                case "Hearts":
+                    //if "Hearts is picked then the bellow card  will build"
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mdi-heart", "red", "red");
+                    break;
+                case "Diamonds":
+                    //if "Diamonds is picked then the bellow card  will build"
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi, mdi-cards-diamonds", "red", "red");
+                    break;
+                case "Clubs":
+                    //if "Clubs is picked then the bellow card  will build"
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi mid-cards-club", "black", "black");
+                    break;
+                case "Spades":
+                    //if "Spades is picked then the bellow card  will build"
+                    cardOutputWithIcon += buildPlayingCard(card, "mdi, mdi mid-card-spade", "black", "black");
+                    break;
+                default:
+            }           
+        }
+        //this line of code assign the result of the switch case to the  html 
+        //div with the ID layer-card-container
+        document.getElementById("layer-card-container").innerHTML = cardOutputWithIcon; 
+
+       }
+    
+         
+</script>  
+<!--This create the card where result of the javaScript codes will display -->   
+       <div class="card faCard" >
+       <div class="form-field formflds">  
+       <div class="form1"> 
+  
+       <!--Below is the div ID created to store the Alphabet letters from the array-->               
+       <div id="card-game">        
+        <div class="card-title">Shuffled Cards</div>
+           <div id="layer-card-container"></div>           
+       </div>
+    </div>     
+       
+</div>
+</div>
+</div> 
+   </body>
+</html>
